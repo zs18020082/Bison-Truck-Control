@@ -5,6 +5,10 @@
  */
 package code;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Electronica
@@ -16,6 +20,14 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+    }
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().
+                getImage(ClassLoader.getSystemResource("iCONS/LOGO.png"));
+
+
+        return retValue;
     }
 
     /**
@@ -30,14 +42,24 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         login = new javax.swing.JButton();
         usuario = new javax.swing.JTextField();
-        contraseña = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        JPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 204, 204));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setIconImage(getIconImage());
+        setLocation(new java.awt.Point(690, 230));
+        setMaximumSize(new java.awt.Dimension(410, 323));
+        setMinimumSize(new java.awt.Dimension(410, 323));
+        setName("INGRESAR"); // NOI18N
+        setSize(new java.awt.Dimension(410, 323));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Gadugi", 0, 24)); // NOI18N
         jLabel1.setText("BISON TRUCK CONTROL");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 12, 270, -1));
 
         login.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         login.setText("INICIAR SESIÓN");
@@ -46,65 +68,45 @@ public class Login extends javax.swing.JFrame {
                 loginActionPerformed(evt);
             }
         });
+        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 228, -1, 43));
 
         usuario.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-
-        contraseña.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        getContentPane().add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 107, 219, -1));
 
         jLabel2.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         jLabel2.setText("CONTRASEÑA: ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 164, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
         jLabel3.setText("USUARIO: ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 110, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(login)))
-                .addContainerGap(44, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addComponent(login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(52, 52, 52))
-        );
+        JPassword.setMinimumSize(new java.awt.Dimension(6, 26));
+        JPassword.setPreferredSize(new java.awt.Dimension(6, 26));
+        getContentPane().add(JPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, 219, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        /*https://uh-tis.blogspot.com/2014/01/Curso-de-JAVA-Como-hacer-un-Login-con-usuario-y-clave-fijos-sin-conexion-a-Base-de-datos.html*/
-        /*https://es.stackoverflow.com/questions/65476/c%C3%B3mo-guardar-un-valor-de-un-objeto-que-esta-almacenado-en-un-arraylist-java*/
-        /*https://www.ecodeup.com/como-escribir-y-leer-archivos-de-texto-plano-en-java*/
+char clave[]=JPassword.getPassword();
+
+String clavedef=new String(clave);
+
+if (usuario.getText().equals("Administrador") && clavedef.equals("delunoalocho")){
+    
+                    this.dispose();
+                    
+                    JOptionPane.showMessageDialog(null, "Bienvenido\n"
+                    + "Has ingresado satisfactoriamente al sistema",   "Mensaje de bienvenida",
+                    JOptionPane.INFORMATION_MESSAGE);
+}else {
+                    JOptionPane.showMessageDialog(null, "Acceso denegado:\n"
+                    + "Por favor ingrese un usuario y/o contraseña correctos", "Acceso denegado",
+                    JOptionPane.ERROR_MESSAGE);
+           
+
+            }        
     }//GEN-LAST:event_loginActionPerformed
 
     /**
@@ -133,17 +135,15 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            publicLOGINn() {
-                new Login().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Login().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField contraseña;
+    private javax.swing.JPasswordField JPassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
